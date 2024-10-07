@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class Main {
+
+    public static boolean isFibonacci(int n) {
+        if(n == 0 || n == 1) {
+            return true;
+        }
+        int before = 0, after = 1;
+        while(after < n) {
+            int current = before + after;
+            before = after;
+            after = current;
+        }
+        return after == n;
+    };
+
+    public static void main(String[] args) {
+        int n;
+        Scanner input = new Scanner(System.in);
+        System.out.print("Insira um número inteiro para verificar se ele está na sequencia de fibonacci: ");
+        n = input.nextInt();
+        if(isFibonacci(n)) {
+            System.out.println(n + " pertence à Fibonacci");
+        }
+        else {
+            System.out.println(n + " não pertence à Fibonacci");
+        }
+    }
+}
